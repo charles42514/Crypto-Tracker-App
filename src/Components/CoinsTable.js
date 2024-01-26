@@ -103,7 +103,7 @@ const CoinsTable = () => {
                                                 fontFamily: 'Montserrat',
                                             }}
                                             key={head}
-                                            align={head === 'Coin' ? '' : 'right'}
+                                            align={head === 'Coin' ? 'left' : 'right'}
                                         >
                                             {head}
                                         </TableCell>
@@ -172,7 +172,7 @@ const CoinsTable = () => {
                                                     {profit && '+'}
                                                     {row.price_change_percentage_24h.toFixed(2)}%
                                                 </TableCell>
-                                                <TableCell align="right">
+                                                <TableCell align='right'>
                                                     {symbol}{' '}
                                                     {numberWithCommas(
                                                         row.market_cap.toString().slice(0, -6)
@@ -187,7 +187,7 @@ const CoinsTable = () => {
                     )}
                 </TableContainer>
                 <Pagination
-                    count={(handleSearch()?.length / 10).toFixed(0)}
+                    count={Math.ceil(handleSearch().length / 10)}
                     style={{
                         padding: 20,
                         width: "100%",
